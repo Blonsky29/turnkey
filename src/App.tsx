@@ -35,7 +35,7 @@ function App() {
 
     if (WebApp.BiometricManager.isBiometricAvailable && !WebApp.BiometricManager.isAccessGranted) {
       console.log('initiate biometric access');
-      const resp = WebApp.BiometricManager.requestAccess({
+      WebApp.BiometricManager.requestAccess({
         reason: 'turn key',
         
       }, (isAccessGranted) => {
@@ -43,11 +43,7 @@ function App() {
         if(isAccessGranted){
           WebApp.BiometricManager.authenticate({reason: 'Sakal dika'}, (isAuthenticated) => console.log('is authenticaed', isAuthenticated))
         }
-        
       })
-      console.log(resp);
-      
-
     }
 
 
