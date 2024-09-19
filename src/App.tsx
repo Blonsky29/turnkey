@@ -10,7 +10,7 @@ function App() {
   const loginWithPasskey = async () => {
     console.log('called');
     console.log(turnKeyConfig);
-    
+
     const response = await passkeyClient?.createUserPasskey();
     console.log(response);
   }
@@ -18,6 +18,13 @@ function App() {
     await authIframeClient?.injectCredentialBundle(credentialBundle);
     await authIframeClient?.login();
   }
+  useEffect(() => {
+    if (window.PublicKeyCredential) {
+      console.log("WebAuthn is supported in this environment");
+    } else {
+      console.log("WebAuthn is not supported in this environment");
+    }
+  }, [])
   return (
     <>
       <button type="button" onClick={loginWithPasskey}>
