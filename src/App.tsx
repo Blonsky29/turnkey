@@ -19,22 +19,19 @@ function App() {
     await authIframeClient?.login();
   }
   useEffect(() => {
-    const { init, isInited, isBiometricAvailable, biometricType, isAccessGranted, isAccessRequested, requestAccess } = window?.telegram?.WebApp.BiometricManager
-    init()
-    console.log(isInited, 'isInited')
-    console.log(isBiometricAvailable, 'isBiometricAvailable')
-    console.log(biometricType, 'biometricType')
-    console.log(isAccessGranted, 'isAccessGranted')
-    console.log(isAccessRequested, 'isAccessRequested')
-    console.log(requestAccess, 'requestAccess')
-
+    window?.telegram?.WebApp.BiometricManager.init()
+    console.log(window?.telegram?.WebApp.BiometricManager.isInited, 'isInited')
+    console.log(window?.telegram?.WebApp.BiometricManager.isBiometricAvailable, 'isBiometricAvailable')
+    console.log(window?.telegram?.WebApp.BiometricManager.biometricType, 'biometricType')
+    console.log(window?.telegram?.WebApp.BiometricManager.isAccessGranted, 'isAccessGranted')
+    console.log(window?.telegram?.WebApp.BiometricManager.isAccessRequested, 'isAccessRequested')
 
 
 
 
     if (window?.telegram?.WebApp.BiometricManager.isBiometricAvailable && !window?.telegram?.WebApp.BiometricManager.isAccessGranted) {
       console.log('initiate biometric access');
-      requestAccess()
+      window?.telegram?.WebApp.BiometricManager.requestAccess()
 
     }
 
