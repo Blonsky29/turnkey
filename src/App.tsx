@@ -20,6 +20,7 @@ function App() {
   }
   useEffect(() => {
     console.log(window.PublicKeyCredential);
+    console.log(window?.Telegram?.WebApp);
     
     if (window.PublicKeyCredential) {
       console.log("WebAuthn is supported in this environment");
