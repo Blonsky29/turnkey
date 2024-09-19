@@ -8,6 +8,7 @@ import WebApp from '@twa-dev/sdk'
 
 eruda.init()
 WebApp.ready()
+WebApp.BiometricManager.init()
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
