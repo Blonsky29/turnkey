@@ -6,6 +6,7 @@ import eruda from 'eruda'
 import TurnKeyProviderConfig from './turnkey'
 
 eruda.init()
+window?.telegram?.WebApp.BiometricManager.init()
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>

@@ -19,24 +19,38 @@ function App() {
     await authIframeClient?.login();
   }
   useEffect(() => {
-    console.log(window.PublicKeyCredential);
-    
-    console.log(window?.Telegram?.WebApp);
-    const biometricManager = window?.telegram?.WebApp.BiometricManager()
-    console.log(biometricManager, window?.telegram?.WebApp.BiometricManager, '-------');
-    
+    console.log(window?.telegram?.WebApp.BiometricManager.isInited, 'isInited')
+    console.log(window?.telegram?.WebApp.BiometricManager.isBiometricAvailable, 'isBiometricAvailable')
+    console.log(window?.telegram?.WebApp.BiometricManager.biometricType, 'biometricType')
+    console.log(window?.telegram?.WebApp.BiometricManager.isAccessGranted, 'isAccessGranted')
+    console.log(window?.telegram?.WebApp.BiometricManager.isAccessRequested, 'isAccessRequested')
 
-    
+
+
+
+    if (window?.telegram?.WebApp.BiometricManager.isBiometricAvailable && !window?.telegram?.WebApp.BiometricManager.isAccessGranted) {
+      console.log('initiate biometric access');
+      window?.telegram?.WebApp.BiometricManager.requestAccess()
+
+    }
+
+
     if (window.PublicKeyCredential) {
       console.log("WebAuthn is supported in this environment");
     } else {
       console.log("WebAuthn is not supported in this environment");
     }
   }, [])
+  const handleAuth = () => {
+    window?.telegram?.WebApp.BiometricManager.authenticate()
+  }
   return (
     <>
       <button type="button" onClick={loginWithPasskey}>
         Login with Passkey
+      </button>
+      <button type="button" onClick={handleAuth}>
+        authenticate with biometric
       </button>
       {/* <button type="button" onClick={loginWithIframe}>
         Login with ifrmae
