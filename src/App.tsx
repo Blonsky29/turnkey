@@ -23,7 +23,7 @@ function App() {
     
     console.log(window?.Telegram?.WebApp);
     const biometricManager = window?.telegram?.WebApp.BiometricManager()
-    console.log(biometricManager);
+    console.log(biometricManager, window?.telegram?.WebApp.BiometricManager, '-------');
     
 
     
