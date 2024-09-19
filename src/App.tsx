@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { useTurnkey } from '@turnkey/sdk-react';
 import { turnKeyConfig } from './turnkey/config/turnKeyConfig';
+import WebApp from '@twa-dev/sdk';
 
 function App() {
   const { turnkey, passkeyClient, authIframeClient } = useTurnkey();
@@ -19,23 +20,23 @@ function App() {
     await authIframeClient?.login();
   }
   useEffect(() => {
-    console.log( window?.telegram?.WebApp.BiometricManager);
-    console.log( window?.telegram?.WebApp);
+    console.log( WebApp);
+    console.log(WebApp.BiometricManager);
+    
 
     
-    window?.telegram?.WebApp.BiometricManager.init()
-    console.log(window?.telegram?.WebApp.BiometricManager.isInited, 'isInited')
-    console.log(window?.telegram?.WebApp.BiometricManager.isBiometricAvailable, 'isBiometricAvailable')
-    console.log(window?.telegram?.WebApp.BiometricManager.biometricType, 'biometricType')
-    console.log(window?.telegram?.WebApp.BiometricManager.isAccessGranted, 'isAccessGranted')
-    console.log(window?.telegram?.WebApp.BiometricManager.isAccessRequested, 'isAccessRequested')
+    WebApp.BiometricManager.init()
+    console.log(WebApp.BiometricManager.isInited, 'isInited')
+    console.log(WebApp.BiometricManager.isBiometricAvailable, 'isBiometricAvailable')
+    console.log(WebApp.BiometricManager.biometricType, 'biometricType')
+    console.log(WebApp.BiometricManager.isAccessGranted, 'isAccessGranted')
+    console.log(WebApp.BiometricManager.isAccessRequested, 'isAccessRequested')
 
 
 
-
-    if (window?.telegram?.WebApp.BiometricManager.isBiometricAvailable && !window?.telegram?.WebApp.BiometricManager.isAccessGranted) {
+    if (WebApp.BiometricManager.isBiometricAvailable && !WebApp.BiometricManager.isAccessGranted) {
       console.log('initiate biometric access');
-      window?.telegram?.WebApp.BiometricManager.requestAccess()
+      // WebApp.BiometricManager.requestAccess()
 
     }
 
