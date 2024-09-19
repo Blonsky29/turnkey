@@ -33,7 +33,7 @@ function App() {
 
 
 
-    if (WebApp.BiometricManager.isBiometricAvailable && !WebApp.BiometricManager.isAccessGranted) {
+    if (WebApp.BiometricManager.isBiometricAvailable) {
       console.log('initiate biometric access');
       WebApp.BiometricManager.requestAccess({
         reason: 'turn key',
