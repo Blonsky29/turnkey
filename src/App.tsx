@@ -40,6 +40,9 @@ function App() {
         
       }, (isAccessGranted) => {
         console.log(isAccessGranted, 'has user granted permission');
+        if(isAccessGranted){
+          WebApp.BiometricManager.authenticate({reason: 'Sakal dika'}, (isAuthenticated) => console.log('is authenticaed', isAuthenticated))
+        }
         
       })
       console.log(resp);
