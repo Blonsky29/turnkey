@@ -20,7 +20,12 @@ function App() {
   }
   useEffect(() => {
     console.log(window.PublicKeyCredential);
+    
     console.log(window?.Telegram?.WebApp);
+    const biometricManager = window?.telegram?.WebApp.BiometricManager()
+    console.log(biometricManager);
+    
+
     
     if (window.PublicKeyCredential) {
       console.log("WebAuthn is supported in this environment");
