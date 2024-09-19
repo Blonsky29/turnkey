@@ -20,6 +20,8 @@ function App() {
   }
   useEffect(() => {
     console.log( window?.telegram?.WebApp.BiometricManager);
+    console.log( window?.telegram?.WebApp);
+
     
     window?.telegram?.WebApp.BiometricManager.init()
     console.log(window?.telegram?.WebApp.BiometricManager.isInited, 'isInited')
