@@ -25,7 +25,6 @@ function App() {
     
 
     
-    WebApp.BiometricManager.init()
     console.log(WebApp.BiometricManager.isInited, 'isInited')
     console.log(WebApp.BiometricManager.isBiometricAvailable, 'isBiometricAvailable')
     console.log(WebApp.BiometricManager.biometricType, 'biometricType')
@@ -36,13 +35,15 @@ function App() {
 
     if (WebApp.BiometricManager.isBiometricAvailable && !WebApp.BiometricManager.isAccessGranted) {
       console.log('initiate biometric access');
-      WebApp.BiometricManager.requestAccess({
+      const resp = WebApp.BiometricManager.requestAccess({
         reason: 'turn key',
         
       }, (isAccessGranted) => {
         console.log(isAccessGranted, 'has user granted permission');
         
       })
+      console.log(resp);
+      
 
     }
 
