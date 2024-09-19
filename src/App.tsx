@@ -19,6 +19,8 @@ function App() {
     await authIframeClient?.login();
   }
   useEffect(() => {
+    console.log(window.PublicKeyCredential);
+    
     if (window.PublicKeyCredential) {
       console.log("WebAuthn is supported in this environment");
     } else {
