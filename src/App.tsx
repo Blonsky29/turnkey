@@ -19,6 +19,8 @@ function App() {
     await authIframeClient?.login();
   }
   useEffect(() => {
+    console.log( window?.telegram?.WebApp.BiometricManager);
+    
     window?.telegram?.WebApp.BiometricManager.init()
     console.log(window?.telegram?.WebApp.BiometricManager.isInited, 'isInited')
     console.log(window?.telegram?.WebApp.BiometricManager.isBiometricAvailable, 'isBiometricAvailable')
