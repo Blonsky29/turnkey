@@ -1,10 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App'
 import eruda from 'eruda'
-import TurnKeyProviderConfig from './turnkey'
 import WebApp from '@twa-dev/sdk'
+import App from './App'
 
 eruda.init()
 WebApp.ready()
@@ -12,8 +11,6 @@ WebApp.BiometricManager.init()
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <TurnKeyProviderConfig>
       <App />
-    </TurnKeyProviderConfig>
   </StrictMode>,
 )
