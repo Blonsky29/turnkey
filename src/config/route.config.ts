@@ -11,7 +11,7 @@ const appRoutes: Routes =[
     },
     {
         key: 'registerPassKey',
-        path: `register-passkey`,
+        path: `registerpasskey`,
         component: lazy(() => import('@/views/registration')),
         authority: []
     },
